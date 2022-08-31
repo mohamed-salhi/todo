@@ -210,7 +210,8 @@ alert('are you sure')
         }
 
     </script>
-        <script>
+
+    <script>
 
 
         function edittodo(id){

@@ -76,8 +76,6 @@ class todocontroller extends Controller
             'success' => $status
         ]);
 
-//        $todo= todo::where('created_at','like', '%' .date("Y-m-d") . '%')->where('users_id',Auth::id())->latest()->paginate(30);
-//        return view('admin/home',compact('todo'))->render();
     }
 
     public function destroy(Request $request)
