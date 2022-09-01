@@ -2,32 +2,41 @@
 @section('title','todo')
 @section('content')
 
-<div class="app-container d-flex align-items-center justify-content-between ">
+<div class="app-container   ">
 
 
         <div class="justify-content-center ">
 
         <h3>Todo App</h3>
-        <form id="comment-form">
-            <div class="d-flex align-items-center mb-3">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <form id="comment-form">
+                    <div class="d-flex align-items-center mb-3">
 
-                <div class="form-group mr-3 mb-0">
+                        <div class="form-group mr-3 mb-0">
 
-                    <input
+                            <input
 
-                        type="text"
-                        name="todo"
-                        class="form-control"
-                        id="formGroupExampleInput"
-                        placeholder="Enter a task here"
-                    />
-                </div>
+                                type="text"
+                                name="todo"
+                                class="form-control"
+                                id="formGroupExampleInput"
+                                placeholder="Enter a task here"
+                            />
+                        </div>
 
-                <button class="btn btn-primary mr-3">save</button>
+                        <button class="btn btn-primary mr-3">save</button>
 
 
+                    </div>
+                </form>
             </div>
-        </form>
+            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal">
+                tasks yesterday
+            </button>
+
+        </div>
+
 
         <div class="table-wrapper">
             <table class="table table-hover table-bordered">
@@ -60,55 +69,81 @@
         </div>
     </div>
 
-
-
-        <div class="justify-content-center ">
-
-            <h6>The tasks you didn't do yesterday</h6>
-            <div class="table-wrapper">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Todo item</th>
-                    </tr>
-                    </thead>
-                    <tbody id="dd">
-                    {{--            @dump($todo->count())--}}
-                    @if($countyesterday)
-
-                    @foreach($yesterday as $item)
-
-
-                           <tr id="deleterow">
-
-                               <td >{{$loop->index+1}}</td>
-                               <td>{{$item->name}}</td>
-
-                           </tr>
-
-                    @endforeach
-
-                    @else
-                        <tr id="e">
-                            <td class="alert-danger" colspan="2">NO TASK FOUND</td>
-                        </tr>
-                    @endif
-                    </tbody>
-
-                </table>
-                <h6>Do you want to add them to today's tasks?</h6>
-
-                  <button  onclick="addtaskyes()" id="addtaskyes"   class="btn btn-primary">
-                      ADDED
-                  </button>
-
-
-            </div>
-        </div>
-
-
 </div>
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                    {{ trans('main_tran.add') }}
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="justify-content-center ">
+
+                    <h6>The tasks you didn't do yesterday</h6>
+                    <div class="table-wrapper">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Todo item</th>
+                            </tr>
+                            </thead>
+                            <tbody id="dd">
+                            {{--            @dump($todo->count())--}}
+                            @if($countyesterday)
+
+                                @foreach($yesterday as $item)
+
+
+                                    <tr id="deleterow">
+
+                                        <td >{{$loop->index+1}}</td>
+                                        <td>{{$item->name}}</td>
+
+                                    </tr>
+
+                                @endforeach
+
+                            @else
+                                <tr id="e">
+                                    <td class="alert-danger" colspan="2">NO TASK FOUND</td>
+                                </tr>
+                            @endif
+                            </tbody>
+
+                        </table>
+                        <h6>Do you want to add them to today's tasks?</h6>
+
+                        <button  onclick="addtaskyes()" id="addtaskyes"   class="btn btn-primary">
+                            ADDED
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
 
 <footer class="footer py-3 mt-100 " >
 
@@ -175,6 +210,7 @@
                     $('#comment-form input').val('');
                     $('.comment-list').html(res);
                     $('#dd').empty();
+                    $("#exampleModal").modal('hide');
 
                 },
                 error: function (data) {
