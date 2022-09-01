@@ -77,23 +77,17 @@ class todocontroller extends Controller
         ]);
 
     }
-
     public function destroy(Request $request)
     {
         todo::destroy($request->id);
-
         $todo = todo::where('created_at', 'like', '%' . date("Y-m-d") . '%')->where('users_id', Auth::id())->latest()->paginate(30);
         $count = $todo->count();
         return response()->json([
             'success' => $count
         ]);
-
     }
-
     public function history()
     {
-
-
         if (request()->has('sarech')) {
             $tasks = todo::where('created_at', 'like', '%' . request()->sarech . '%')->where('users_id', Auth::id())->orderBy('id', 'desc')->paginate(9);
             $count = $tasks->count();
@@ -103,7 +97,6 @@ class todocontroller extends Controller
             $tasks = todo::where('id', '>', 0)->where('users_id', Auth::id())->orderBy('id', 'desc')->paginate(9);
             $count = $tasks->count();
             return view('admin.history', compact('tasks', 'count'));
-
         }
     }
 }
