@@ -2,9 +2,9 @@
 @section('title','todo')
 @section('content')
 
-<div class="app-container d-flex align-items-center justify-content-around ">
+<div class="app-container d-flex align-items-center justify-content-between ">
 
-    <div>
+
         <div class="justify-content-center ">
 
         <h3>Todo App</h3>
@@ -60,11 +60,11 @@
         </div>
     </div>
 
-    </div>
-    <div>
+
+
         <div class="justify-content-center ">
 
-            <h3>The tasks you didn't do yesterday</h3>
+            <h6>The tasks you didn't do yesterday</h6>
             <div class="table-wrapper">
                 <table class="table table-hover table-bordered">
                     <thead>
@@ -97,9 +97,9 @@
                     </tbody>
 
                 </table>
-                <h3>Do you want to add them to today's tasks?</h3>
+                <h6>Do you want to add them to today's tasks?</h6>
 
-                  <button  onclick="addtaskyes()" id="addtaskyes"   class="btn btn-success">
+                  <button  onclick="addtaskyes()" id="addtaskyes"   class="btn btn-primary">
                       ADDED
                   </button>
 
@@ -107,7 +107,7 @@
             </div>
         </div>
 
-    </div>
+
 </div>
 
 <footer class="footer py-3 mt-100 " >
