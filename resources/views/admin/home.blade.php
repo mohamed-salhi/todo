@@ -5,7 +5,7 @@
 
         <td >{{$loop->index+1}}</td>
         <td>{{$item->name}}</td>
-        <td class="{{($item->status)?'alert-success':'alert-danger'}}"   id="idss{{$item->id}}">{{(!$item->status)?'In progress':'Completed'}}</td>
+        <td   id="idss{{$item->id}}">{{(!$item->status)?'In progress':'Completed'}}</td>
         <td>
             <div class="d-flex justify-content-between">
                    <button  id="deleteProduct"   onclick="deletetodo({{$item->id}})"  class="btn btn-danger">

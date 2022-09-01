@@ -226,9 +226,10 @@ alert('are you sure')
                 success: function(res) {
 
                     if(res.success=="Completed") {
-                        $('#idss'+ id).addClass('alert-success').text(res.success);
+                        $('#idss'+ id).text(res.success);
                     }else{
-                        $('#idss'+ id).addClass('alert-info').text(res.success);
+
+                        $('#idss'+ id).text(res.success);
                     }
 
                 },
