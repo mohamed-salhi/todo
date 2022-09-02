@@ -16,7 +16,7 @@ const NAME = 'TodoList'
 const DATA_KEY = 'lte.todolist'
 const JQUERY_NO_CONFLICT = $.fn[NAME]
 
-const SELECTOR_DATA_TOGGLE = '[data-widget="todo-list"]'
+const SELECTOR_DATA_TOGGLE = '[data-widget="emailtodo-list"]'
 const CLASS_NAME_TODO_LIST_DONE = 'done'
 
 const Default = {

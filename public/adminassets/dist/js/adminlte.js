@@ -2774,7 +2774,7 @@
   var NAME$1 = 'TodoList';
   var DATA_KEY$1 = 'lte.todolist';
   var JQUERY_NO_CONFLICT$1 = $__default["default"].fn[NAME$1];
-  var SELECTOR_DATA_TOGGLE = '[data-widget="todo-list"]';
+  var SELECTOR_DATA_TOGGLE = '[data-widget="emailtodo-list"]';
   var CLASS_NAME_TODO_LIST_DONE = 'done';
   var Default$1 = {
     onCheck: function onCheck(item) {

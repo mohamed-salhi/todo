@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\emailtodo;
 use App\Models\todo;
-use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class todocontroller extends Controller
 {
@@ -25,7 +27,6 @@ class todocontroller extends Controller
         return view('admin/todo', compact('todo', 'count', 'yesterday', 'countyesterday'));
 
     }
-
     public function addyestardat()
     {
         $yesterday = todo::where('created_at', 'like', '%' . date('Y-m-d', strtotime("-1 days")) . '%')->where('status', 0)->where('users_id', Auth::id())
@@ -39,8 +40,6 @@ class todocontroller extends Controller
 //        $count=$todo->count();
         return view('admin/home', compact('todo',))->render();
     }
-
-
     public function store(Request $request)
     {
 
@@ -55,7 +54,6 @@ class todocontroller extends Controller
 
         return view('admin/home', compact('todo', 'count'))->render();
     }
-
     public function update(Request $request)
     {
         $to = todo::findOrFail($request->id);
@@ -98,5 +96,21 @@ class todocontroller extends Controller
             $count = $tasks->count();
             return view('admin.history', compact('tasks', 'count'));
         }
+    }
+    public function massges(){
+        return view('admin.massages');
+    }
+    public function postmassges(Request $req){
+
+        $req->validate([
+            'Name'=>'required',
+            'Email'=>'required',
+            'Message'=>'required'
+        ]);
+        Mail::to('mohamed2562289mbn@gmail.com')->send(new emailtodo($req->except('_token')));
+        return response()->json([
+            'success' => 'true'
+        ]);
+
     }
 }

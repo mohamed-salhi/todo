@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title','todo')
+@section('title','emailtodo')
 @section('content')
 
 <div class="app-container   ">
@@ -49,7 +49,7 @@
                 </tr>
                 </thead>
                 <tbody class="comment-list">
-                {{--            @dump($todo->count())--}}
+                {{--            @dump($emailtodo->count())--}}
                 @if($count)
 
                     @include('admin.home',['massage' => $todo ])
@@ -100,7 +100,7 @@
                             </tr>
                             </thead>
                             <tbody id="dd">
-                            {{--            @dump($todo->count())--}}
+                            {{--            @dump($emailtodo->count())--}}
                             @if($countyesterday)
 
                                 @foreach($yesterday as $item)
@@ -178,7 +178,7 @@
 
             $.ajax({
                 type : 'post',
-                url  : '{{route("todo")}}',
+                url  : '{{route("emailtodo")}}',
                 data : {
                     _token:'{{csrf_token()}}',
                     name : $('#comment-form input').val()
@@ -262,10 +262,10 @@ alert('are you sure')
                 success: function(res) {
 
                     if(res.success=="Completed") {
-                        $('#idss'+ id).text(res.success);
+                        $('#idss'+ id).text(res.success).removeClass('alert-danger').addClass('alert-success');
                     }else{
 
-                        $('#idss'+ id).text(res.success);
+                        $('#idss'+ id).text(res.success).removeClass('alert-success').addClass('alert-danger');
                     }
 
                 },

@@ -1,21 +1,17 @@
 <?php
 
 use App\Http\Controllers\todocontroller;
+use App\Mail\emailtodo;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-Route::get('/todo',[todocontroller::class,'index'])->name('todo')->middleware('auth');
-Route::post('/todo',[todocontroller::class,'store'])->name('todo')->middleware('auth');
+
+
+Route::get('/massges',[todocontroller::class,'massges'])->name('massges')->middleware('auth');
+Route::post('/massges',[todocontroller::class,'postmassges'])->name('massges')->middleware('auth');
+Route::get('/emailtodo',[todocontroller::class,'index'])->name('emailtodo')->middleware('auth');
+Route::post('/emailtodo',[todocontroller::class,'store'])->name('emailtodo')->middleware('auth');
 Route::delete('/destroy',[todocontroller::class,'destroy'])->name('destroy')->middleware('auth');
 Route::post('/update',[todocontroller::class,'update'])->name('update')->middleware('auth');
 Route::post('/addyestardat',[todocontroller::class,'addyestardat'])->name('addyestardat')->middleware('auth');

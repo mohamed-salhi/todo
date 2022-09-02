@@ -2383,7 +2383,7 @@ function setDefaults(d, xo, yo, initY) {
 }
 
 function setDefaults2(d, xyo) {
-	return d.map((o, i) => i == 0 ? null : assign({}, xyo, o));  // todo: assign() will not merge facet arrays
+	return d.map((o, i) => i == 0 ? null : assign({}, xyo, o));  // emailtodo: assign() will not merge facet arrays
 }
 
 function setDefault(o, i, xo, yo) {

@@ -5052,7 +5052,7 @@
       }
     } // ----------------------------------------------------------------------
     // the following methods are used to handle overflowing modals
-    // todo (fat): these should probably be refactored out of modal.js
+    // emailtodo (fat): these should probably be refactored out of modal.js
     // ----------------------------------------------------------------------
     ;
 

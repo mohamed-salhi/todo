@@ -1,7 +1,7 @@
 
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{route('todo')}}" class="brand-link">
+    <a href="{{route('emailtodo')}}" class="brand-link">
         <img src="{{ asset('adminassets/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">AdminLTE 3</span>
     </a>
@@ -27,7 +27,7 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{route('todo')}}" class="nav-link">
+                    <a href="{{route('emailtodo')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>todo</p>
                     </a>
@@ -36,6 +36,13 @@
                     <a href="{{route('history')}}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>history</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('massges')}}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>massges</p>
+
                     </a>
                 </li>
                 <li class="nav-item">

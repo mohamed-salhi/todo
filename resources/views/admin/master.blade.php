@@ -2,6 +2,7 @@
 
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title',env('APP_NAME'))</title>
@@ -12,6 +13,8 @@
     <link rel="stylesheet" href="{{asset('adminassets/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('adminassets/dist/css/adminlte.min.css')}}">
+
+    @yield('css')
 </head>
 <style>
     .table th,
@@ -139,6 +142,7 @@
             <div class="container-fluid">
 
         </div>
+
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
@@ -188,4 +192,10 @@
 <script src="{{asset('adminassets/dist/js/adminlte.min.js')}}"></script>
     @yield('script')
 </body>
+<script
+>
+    $(".alert").fadeTo(2000, 500).slideUp(500, function(){
+        $(".alert").slideUp(500);
+    });
+</script>
 </html>

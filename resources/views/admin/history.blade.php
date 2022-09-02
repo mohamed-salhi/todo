@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title','todo')
+@section('title','emailtodo')
 @section('content')
 
     <div class="app-container ">
