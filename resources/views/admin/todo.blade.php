@@ -1,5 +1,5 @@
 @extends('admin.master')
-@section('title','emailtodo')
+@section('title','todo')
 @section('content')
 
 <div class="app-container   ">
@@ -49,7 +49,7 @@
                 </tr>
                 </thead>
                 <tbody class="comment-list">
-                {{--            @dump($emailtodo->count())--}}
+                {{--            @dump($todo->count())--}}
                 @if($count)
 
                     @include('admin.home',['massage' => $todo ])
@@ -100,7 +100,7 @@
                             </tr>
                             </thead>
                             <tbody id="dd">
-                            {{--            @dump($emailtodo->count())--}}
+                            {{--            @dump($todo->count())--}}
                             @if($countyesterday)
 
                                 @foreach($yesterday as $item)
@@ -165,7 +165,7 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
 
 <!-- JohnDoe js -->
-<script src="{{asset('assets/js/johndoe.js')}}"></script>
+
 
 
 
@@ -178,7 +178,7 @@
 
             $.ajax({
                 type : 'post',
-                url  : '{{route("emailtodo")}}',
+                url  : '{{route("todo")}}',
                 data : {
                     _token:'{{csrf_token()}}',
                     name : $('#comment-form input').val()
@@ -209,8 +209,9 @@
                 success: function(res) {
                     $('#comment-form input').val('');
                     $('.comment-list').html(res);
-                    $('#dd').empty();
                     $("#exampleModal").modal('hide');
+                    $('#dd').empty();
+
 
                 },
                 error: function (data) {
@@ -218,6 +219,7 @@
                 }
             })
         }
+
     </script>
 
     <script>
